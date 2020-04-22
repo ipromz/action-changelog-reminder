@@ -3183,6 +3183,10 @@ function fileMissing(octokit, actionContext, prNumber, core) {
         const regex = regex_str ? new RegExp(regex_str) : default_regex;
         const files = yield octokit.pulls.listFiles(Object.assign(Object.assign({}, actionContext.repo), { pull_number: prNumber }));
         const changlelogFiles = files.data.filter(value => regex.test(value.filename));
+        core.debug( 'filemissing returned' );
+        core.debug( JSON.stringify( files ) );
+        core.debug( changlelogFiles.length );
+  
         return changlelogFiles.length === 0;
     });
 }

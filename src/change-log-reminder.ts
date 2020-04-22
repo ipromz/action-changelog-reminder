@@ -4,7 +4,7 @@ import { createComment } from './createComment';
 import { fileMissing } from './fileMissing';
 import { githubToken } from './githubToken';
 import { missingChangelogContent } from './missingChangelogContent';
-import * as core from '@actions/core'
+
 
 export async function changeLogReminder(Github: any, actionContext: Context, core: any) {
   try {
