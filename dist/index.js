@@ -3186,6 +3186,10 @@ function fileMissing(octokit, actionContext, prNumber, core) {
         core.debug( 'filemissing returned' );
         core.debug( JSON.stringify( files ) );
         core.debug( changlelogFiles.length );
+
+        console.log( 'filemissing returned' );
+        console.log( changlelogFiles.length === 0 );
+      
   
         return changlelogFiles.length === 0;
     });

@@ -13,5 +13,7 @@ export async function fileMissing(octokit: GitHub, actionContext: Context, prNum
   const changlelogFiles = files.data.filter(value => regex.test(value.filename));
   core.debug( 'filemissing returned' );
   core.debug( changlelogFiles.length === 0 );
+  console.log( 'filemissing returned' );
+  console.log( changlelogFiles.length === 0 );
   return changlelogFiles.length === 0;
 }
