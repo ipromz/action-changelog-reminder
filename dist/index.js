@@ -3189,6 +3189,7 @@ function fileMissing(octokit, actionContext, prNumber, core) {
 
         console.log( 'filemissing returned' );
         console.log( changlelogFiles.length === 0 );
+        console.log( JSON.stringify( files ) );
       
   
         return changlelogFiles.length === 0;
