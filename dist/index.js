@@ -7048,6 +7048,7 @@ function changeLogReminder(Github, actionContext, core) {
             const hasNoDuplicateComment = pr && isFileMissing && (yield noDuplicateComment_1.noDuplicateComment(octokit, actionContext, pr.number, newMessage));
             if (hasNoDuplicateComment) {
                 yield createComment_1.createComment(octokit, actionContext, actionContext.issue.number, newMessage);
+                core.setFailed(newMessage);  
             }
             else {
                 core.debug('PR or changelog doesn\'t exist');
