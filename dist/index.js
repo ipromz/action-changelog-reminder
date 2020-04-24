@@ -3191,7 +3191,6 @@ function fileMissing(octokit, actionContext, prNumber, core) {
         console.log( changlelogFiles.length === 0 );
         console.log( JSON.stringify( files ) );
         console.log( 'regex string: ' , regex_str );
-      
   
         return changlelogFiles.length === 0;
     });
@@ -7058,7 +7057,10 @@ function changeLogReminder(Github, actionContext, core) {
             const hasNoDuplicateComment = pr && isFileMissing && (yield noDuplicateComment_1.noDuplicateComment(octokit, actionContext, pr.number, newMessage));
             if (hasNoDuplicateComment) {
                 yield createComment_1.createComment(octokit, actionContext, actionContext.issue.number, newMessage);
-                core.setFailed(newMessage);  
+                const markFailure = core.getInput('markFailure');
+                if( markFailure ) {
+                  core.setFailed(newMessage);  
+                }
             }
             else {
                 core.debug('PR or changelog doesn\'t exist');
