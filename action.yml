@@ -7,6 +7,8 @@ branding:
 inputs:
   changelog_regex:
     description: "A regex to match changelog file, default to 'change_log\\/.*\\/*.yml'"
+  markFailure:
+    description: 'Whether to cause a failure or not, default to false'
   customPrMessage:
     description: "Custom message to display if no changelong is found"
 
